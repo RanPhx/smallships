@@ -23,8 +23,10 @@ public class ModelBrigg extends EntityModel<BriggEntity> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
+		// Definition of root part of ModelBrigg
 		PartDefinition ModelBrigg = partdefinition.addOrReplaceChild("ModelBrigg", CubeListBuilder.create(), PartPose.offset(3.0F, 24.0F, 0.0F));
 
+		//Definition of bottom Part of ModelBrigg
 		PartDefinition bottom_brigg = ModelBrigg.addOrReplaceChild("bottom_brigg", CubeListBuilder.create().texOffs(0, 12).addBox(-3.0F, -112.0F, -20.0F, 25.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 12).addBox(-3.0F, -114.0F, 23.0F, 25.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 12).addBox(-28.0F, -112.0F, -20.0F, 25.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
@@ -37,6 +39,7 @@ public class ModelBrigg extends EntityModel<BriggEntity> {
 				.texOffs(0, 12).addBox(-31.0F, -82.0F, 22.0F, 28.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 12).addBox(-40.0F, -82.0F, 22.0F, 9.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
+	//Definition of the single cubes which make up the BriggModel
 		PartDefinition cube_r1 = bottom_brigg.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(25, 0).addBox(-0.5F, -35.0F, 38.9F, 2.0F, 12.0F, 2.0F, new CubeDeformation(0.0F))
 				.texOffs(25, 0).addBox(-0.5F, -23.0F, 38.9F, 2.0F, 17.0F, 2.0F, new CubeDeformation(0.0F))
 				.texOffs(25, 0).addBox(-0.5F, -6.0F, 38.9F, 2.0F, 13.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.5F, -80.669F, 28.9006F, -1.4399F, 0.0F, 0.0F));
@@ -88,6 +91,7 @@ public class ModelBrigg extends EntityModel<BriggEntity> {
 				.texOffs(0, 0).addBox(10.0F, -6.0F, -2.5F, 12.0F, 6.0F, 11.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 0).addBox(-20.0F, -6.0F, -2.5F, 20.0F, 6.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
 
+		//Definition of sides of the BriggModel
 		PartDefinition sides_brigg = bottom_brigg.addOrReplaceChild("sides_brigg", CubeListBuilder.create().texOffs(0, 12).addBox(25.0F, -82.0F, -20.0F, 9.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition cube_r7 = sides_brigg.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(0, 0).addBox(16.0F, -25.0F, -20.0F, 12.0F, 3.0F, 6.0F, new CubeDeformation(0.0F))
@@ -176,12 +180,14 @@ public class ModelBrigg extends EntityModel<BriggEntity> {
 
 		PartDefinition steer = ModelBrigg.addOrReplaceChild("steer", CubeListBuilder.create(), PartPose.offset(-3.0F, -1.8071F, 48.6533F));
 
+		//Definition of the steer
 		PartDefinition steer_r1 = steer.addOrReplaceChild("steer_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-9.0F, -0.5F, 0.5F, 18.0F, 1.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 0.1222F, 1.5708F));
 
 		return LayerDefinition.create(meshdefinition, 128, 64);
 	}
 
 	@Override
+	//Setup Animation?
 	public void setupAnim(BriggEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		ModelBrigg.getChild("chest_1").visible = (entityIn).getCargo() >= 1;
 		ModelBrigg.getChild("chest_2").visible = (entityIn).getCargo() >= 2;
